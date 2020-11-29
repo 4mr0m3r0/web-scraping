@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.9.0-buster
 MAINTAINER Romero
 
 ENV PYTHONUNBUFFERED 1
@@ -8,7 +8,7 @@ RUN pip install -r /requirements.txt
 
 RUN mkdir /app
 WORKDIR /app
-COPY ./app /app
+COPY ./ /app
 
-RUN adduser -D user
+RUN adduser --disabled-login user
 USER user
